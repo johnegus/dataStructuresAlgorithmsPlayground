@@ -16,5 +16,5 @@ function digitalRootStep(num){
 };
 
 console.log(digitalRoot(23));
-
-console.log(digitalRoot(233));
+console.log(digitalRoot(234));
+console.log(digitalRoot(999));
