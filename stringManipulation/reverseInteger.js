@@ -9,7 +9,7 @@
 //convert back to integer
 let reverse = function(integer) {
     const limit = 2147483648;
-    const k = integer < 0 ? -1 : 1;
+    const sign = integer < 0 ? -1 : 1;
     const newInteger = Number(String(Math.abs(integer)).split('').reverse().join(''));
-    return newInteger > limit ? 0 : newInteger * k;
+    return newInteger > limit ? 0 : newInteger * sign;
 };
