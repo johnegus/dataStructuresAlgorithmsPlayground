@@ -3,3 +3,4 @@ class Solution(object):
         address = address.replace(".", "[.]")
         return address
         
+
