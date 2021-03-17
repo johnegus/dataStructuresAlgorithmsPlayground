@@ -16,29 +16,32 @@ console.log(checkPalindrome('racecar'))
 // * Write a function that given a list of countries, returns the country(s) that occur the least times
 // i.e - ["Argentina", "Cuba", "Chile", "Argentina"] -> ["Cuba", "Chile"]
 let leastFrequent = function(array) {
-    let newArray = [];
-    let count = 0
-    let least = 99999999999;
-    let minItem = [];
-    for(let i=0; i <array.length; i++) {
-        for(let j=0; j<array.length; j++) {
-            if (array[i] === array[j]) {
-                count++;
-            }
+    array.sort()
+    console.log(array)
+    let res =[]
+    let least = array.length + 1;
+    let currentCount = 1
+    for (let i = 1; i < array.length; i++) {
+        if(array[i] == array[i - 1]){
+            currentCount = currentCount + 1
+        } else {
+            if (currentCount < least){
+            least = currentCount + 1;
+            res.pop()
+            res.push(array[i - 1])
+            } 
+            currentCount = 1
         }
-            
-            if (least >= count) {
-                least = count;
-                
-                minItem.push(array[i])
-            }
-        count = 0;
+       
     }
-    minItem.shift()
-    return minItem;
+    if (currentCount < least){
+        least = currentCount;
+        res.push(array[array.length -1])
+    } 
+    return res
 }
 
-console.log(leastFrequent(["Argentina", "Cuba", "Chile", "Argentina"]))
+console.log(leastFrequent(["Argentina", "Cuba", "Chile", "Argentina", "Cuba", "Chile"]))
 
 
 
