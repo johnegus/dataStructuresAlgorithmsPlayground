@@ -51,7 +51,6 @@ let leastFrequent = function(array){
     let finalArray = []
 
     for (let index = 0; index < newSet.length; index++) {
-        const element = newSet[index];
         for (let j = 0; j < array.length; j++) {
             const origElement = array[j];
             if (origElement === newSet[index])
@@ -64,7 +63,7 @@ let leastFrequent = function(array){
     console.log(numSet)
     let mathMin = Math.min(...numSet)
     console.log(mathMin)
-    
+
     for (let k = 0; k < numSet.length; k++) {
         const numElement = numSet[k];
         if (numElement == mathMin){
