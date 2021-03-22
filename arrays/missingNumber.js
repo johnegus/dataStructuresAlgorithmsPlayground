@@ -12,27 +12,23 @@
 // Example 1:
 
 let nums = [3,0,1]
-let nums2 = [1]
+let nums2 = [45,35,38,13,12,23,48,15,44,21,43,26,6,37,1,19,22,3,11,32,4,16,28,49,29,36,33,8,9,39,46,17,41,7,2,5,27,20,40,34,30,25,47,0,31,42,24,10,14]
 let nums3 = [9,6,4,2,3,5,7,0,1]
 // Output: 2
 // Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
 
-/**
- * @param {number[]} nums
- * @return {number}
- */
+
 
 var missingNumber = function(nums) {
-    if (nums.length === 1 && nums[0] === 1) return 0;
-    if (nums.length === 1 && nums[0] === 0) return 1;
-    nums.sort()
-    for (let index = 0; index < nums.length; index++) {
-        const num = nums[index];
-        if (index > 0 && nums[index] - nums[index-1] !== 1){
-            return nums[index] - 1
+    let range = nums.length 
+    let sortedNums = nums.sort((a, b) => a - b);
+    if (sortedNums[0] === 1) return 0;
+    for (let index = 0; index < sortedNums.length; index++) {
+        if (index > 0 && sortedNums[index] - sortedNums[index-1] !== 1){
+            return sortedNums[index] - 1
         } 
     }
-    return nums.length
+    return range
 };
 
 console.log(missingNumber(nums))
