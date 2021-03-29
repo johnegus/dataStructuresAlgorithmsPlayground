@@ -48,3 +48,32 @@ console.log(sumOfUnique(nums))
 console.log(sumOfUnique(nums2))
 console.log(sumOfUnique(nums3))
 console.log(sumOfUnique(nums4))
+
+
+
+// other guys object solution
+var sumOfUnique = function(nums) {
+    let obj = {}
+    let sum = 0
+    // count frequency of each number
+    for(let num of nums){
+      if(obj[num] === undefined){
+        sum += num
+        obj[num] = 1
+      }else if(obj[num] === 1){
+        sum -= num
+        obj[num] = -1
+      }
+    }
+    
+    return sum
+  };
+
+  //other guys nice solution
+  let result = []
+    nums.forEach(function(e){
+        if(nums.indexOf(e)  == nums.lastIndexOf(e)){
+            result.push(e)
+        } 
+    })
+ return result.reduce((a,b) => a + b , 0)

@@ -21,26 +21,40 @@ let nums2 = [33, -33, 0, 1]
 let nums3 = [0]
 // Output: []
 
+let nums4 = [-1,0,1,2,-1,-4]
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
  var threeSum = function(nums) {
+     nums = nums.sort((a,b) => a - b)
      let answer = [];
-     let exists = {};
-     let target = 0;
+     let arrays = {}
+
 
      for (let i = 0; i < nums.length; i++) {
          const num = nums[i];
-         if (typeof(exists[target- num]) !== 'undefined') {
-             answer.push([nums[exists[target-num]], nums[i]]);
-            //  answer.push(nums[i]);
-             console.log(exists[target - num]);
-             console.log(i)
-             
+         let target = 0 - num
+         let exists = {};
+         for (let j = i+1; j < nums.length; j++) {
+             const num2 = nums[j];
+            
+
+            if(typeof(exists[target - num2]) !== 'undefined'){
+                
+                if (typeof(arrays[[num, num2, exists[target - num2]]]) === 'undefined'){
+                    arrays[[num, num2, exists[target - num2]]] = [num, num2, exists[target - num2]]
+                }
+                 
+            
+                continue;
+            }
+             exists[num2] = parseInt(num2);
          }
-         exists[num] = i;
-         console.log(exists)
+        
+     }
+     for (let array in arrays){
+         answer.push(arrays[array])
      }
     return answer
 };
@@ -150,9 +164,10 @@ let nums3 = [0]
 // 	return results
 // };
 
-// console.log(threeSum(nums))
+console.log(threeSum(nums))
 console.log(threeSum(nums2))
 console.log(threeSum(nums3))
+console.log(threeSum(nums4))
 
 
 
