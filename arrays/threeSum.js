@@ -45,6 +45,10 @@ let nums3 = [0]
     return answer
 };
 
+var threeSum = function(nums) {
+    nums = nums.sort((a, b) => a - b)
+};
+
 // var threeSum = function(nums) {
 //     let answer = [];
 //     let target = 0;
