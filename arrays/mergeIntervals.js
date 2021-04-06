@@ -17,7 +17,7 @@ let intervals2 = [[1,4],[4,5]]
 // Output: [[1,5]]
 // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
  
-
+let intervals3 = [[1,4],[0,4]]
 // Constraints:
 
 // 1 <= intervals.length <= 104
@@ -43,5 +43,48 @@ let intervals2 = [[1,4],[4,5]]
     return newArray
 };
 
+// var merge = function(intervals) {
+//     if (intervals.length <= 1){
+//         return intervals;
+//     }
+//     intervals.sort(([a], [b]) => a - b);
+//     let newArray = [];
+//     let currentInterval = intervals[0];
+//     newArray.push(currentInterval);
+//     for (let index = 1; index < intervals.length; index++) {
+//         const element = intervals[index];
+//         let currentBegin = currentInterval[0];
+//         let currentEnd = currentInterval[1];
+//         let nextBegin = element[0];
+//         let nextEnd = element[1]
+
+//         if (currentEnd >= nextBegin){
+//             currentInterval[1] = Math.max(currentBegin, nextEnd)
+//         } else {
+//             currentInterval = element
+//             newArray.push(currentInterval)
+//         }
+
+        
+//     }
+//    return newArray
+// };
+
+function merge(intervals) {
+    intervals.sort(([a], [b]) => a - b);
+    const merged = [];
+    let [opening, closing] = intervals[0];
+    for (const [start, end] of intervals) {
+        if (start > closing) {
+            merged.push([opening, closing]);
+            opening = start;
+        }
+        closing = Math.max(closing, end);
+    }
+    merged.push([opening, closing]);
+    return merged;
+}
 console.log(merge(intervals))
 console.log(merge(intervals2))
+console.log(merge(intervals3))
+console.log(merge([[1,4],[2,3]]))
