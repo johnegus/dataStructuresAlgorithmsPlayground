@@ -31,7 +31,7 @@ let s4 = "dDzeE"
 // Output: "dD"
 // Explanation: Both "dD" and "eE" are the longest nice substrings.
 // As there are multiple longest nice substrings, return "dD" since it occurs earlier.
-let s5 = 'Bb'
+let s5 = 'Bbccc'
 let s6 = "jcJ"
 // Constraints:
 
@@ -42,25 +42,60 @@ let s6 = "jcJ"
  * @param {string} s
  * @return {string}
  */
- var longestNiceSubstring = function(string) {
-     let newerString = ''
-     let longestString = ''
-    for (let index = 0; index < string.length; index++) {
-        const element = string[index];
-        if(string.charCodeAt(index) + 32 === string.charCodeAt(index-1) || string.charCodeAt(index) - 32 === string.charCodeAt(index-1) ){
-            newerString += element
-            if (newerString.length === string.length){
-                return newerString;
-            }
-        } else {
-            if (newerString.length > longestString.length){
-                longestString = newerString
-            }
-            newerString = element
-        }
+//  var longestNiceSubstring = function(string) {
+//      let newerString = ''
+//      let longestString = ''
+//     for (let index = 0; index < string.length; index++) {
+//         const element = string[index];
+//         if(string.charCodeAt(index) + 32 === string.charCodeAt(index-1) || string.charCodeAt(index) - 32 === string.charCodeAt(index-1) ){
+//             newerString += element
+//             if (newerString.length === string.length){
+//                 return newerString;
+//             }
+//         } else {
+//             if (newerString.length > longestString.length){
+//                 longestString = newerString
+//             }
+//             newerString = element
+//         }
         
-    }
-    return longestString;
+//     }
+//     return longestString;
+// };
+
+// var longestNiceSubstring = function(string) {
+//     let object = [];
+//     let newArray = []
+//    for (let index = 0; index < string.length; index++) {
+//        const element = string[index];
+//        if (object.includes(element.toLowerCase()) || object.includes(element.toUpperCase())){
+//            object.push(element)
+//            console.log(object)
+//        } else{
+//            if (!object.every( (val, i, arr) => val === arr[0])){
+//             newArray.push(object)
+//            }
+           
+//             object = [element]
+//        }
+//        if (!object.every( (val, i, arr) => val === arr[0])){
+//         newArray.push(object)
+//        }
+     
+//    }
+
+var longestNiceSubstring = function(string) {
+    let object = {};
+    let newArray = []
+    let counter = 1
+   for (let index = 0; index < string.length; index++) {
+
+       const element = string[index];
+        
+
+   }
+
+   return object;
 };
 
 console.log(longestNiceSubstring(s))
